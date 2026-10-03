@@ -1,0 +1,8 @@
+{
+  "kind": "rnn",
+  "model_kwargs": {
+    "rnn_type": "lstm",
+    "bidirectional": true
+  },
+  "max_len": 48
+}

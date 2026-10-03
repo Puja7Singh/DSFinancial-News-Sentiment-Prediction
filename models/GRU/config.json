@@ -1,0 +1,7 @@
+{
+  "kind": "rnn",
+  "model_kwargs": {
+    "rnn_type": "gru"
+  },
+  "max_len": 48
+}
