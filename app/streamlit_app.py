@@ -95,11 +95,11 @@ if st.button("Predict sentiment", type="primary") and text.strip():
                               "probability": list(
                                   result["probabilities"].values())})
         st.altair_chart(class_bar(probs, "probability", "probability", 150),
-                        use_container_width=True)
+                        width="stretch")
     if len(result["sentences"]) > 1:
         st.subheader("Per-sentence breakdown")
         st.dataframe(pd.DataFrame(result["sentences"]),
-                     use_container_width=True, hide_index=True)
+                     width="stretch", hide_index=True)
 
 # --------------------------------------------------------------------------
 # Dataset overview and model comparison
@@ -110,7 +110,7 @@ with col1:
     st.subheader("Validation class distribution")
     dist = get_validation()["sentiment"].value_counts().reindex(config.LABELS)
     st.altair_chart(class_bar(dist.rename_axis("class").reset_index(
-        name="tweets"), "tweets", "tweets", 200), use_container_width=True)
+        name="tweets"), "tweets", "tweets", 200), width="stretch")
 with col2:
     st.subheader("Model comparison (validation)")
     table = pd.DataFrame([
@@ -119,4 +119,4 @@ with col2:
     ]).sort_values("macro F1", ascending=False)
     st.dataframe(table.style.format({"accuracy": "{:.3f}",
                                      "macro F1": "{:.3f}"}),
-                 use_container_width=True, hide_index=True)
+                 width="stretch", hide_index=True)

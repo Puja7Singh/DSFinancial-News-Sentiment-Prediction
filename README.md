@@ -56,7 +56,9 @@ sentiment-project/
 │   ├── run_baselines.py      trains + evaluates all baselines
 │   ├── bert_finetune.py      BERT / FinBERT fine-tuning
 │   └── predict.py            raw paragraph -> sentiment (CLI + Python API)
-├── app/streamlit_app.py      dashboard
+├── app.py                    dashboard entry point (streamlit run app.py)
+├── app/streamlit_app.py      dashboard code
+├── run_app.bat / run_app.sh  one-click install + launch
 ├── notebooks/financial_sentiment.ipynb   documented end-to-end walk-through (executed)
 ├── scripts/
 │   ├── make_report.py        figures + 2-page PDF from saved metrics
@@ -94,7 +96,7 @@ python -m src.predict "Oil prices slide as OPEC+ signals higher output. Apple be
 python -m src.predict --file article.txt --model LSTM --json
 
 # 5. Launch the dashboard
-streamlit run app/streamlit_app.py
+python -m streamlit run app.py      # or: streamlit run app/streamlit_app.py
 ```
 
 Or open `notebooks/financial_sentiment.ipynb` and run all cells. On Colab:
@@ -114,6 +116,19 @@ Per sentence:
 ```
 
 ## Streamlit dashboard
+
+**Quick start:** unzip, open the `sentiment-project` folder (the one that
+contains `app.py` and `requirements.txt`) and either double-click
+`run_app.bat` (Windows) / run `./run_app.sh` (macOS, Linux), or type:
+
+```bash
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+The browser opens at http://localhost:8501. The first load takes 10-20 seconds
+while PyTorch and the model load. `python -m streamlit` works even when the
+`streamlit` command is "not recognized" (Windows PATH issue).
 
 ![Streamlit app](reports/figures/streamlit_app.png)
 
