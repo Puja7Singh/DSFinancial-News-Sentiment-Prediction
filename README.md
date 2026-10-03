@@ -30,8 +30,8 @@ official splits only: 9,543 train / 2,388 validation tweets
   phrasing, hedged quotes, borderline labels).
 * **Why BERT:** a from-scratch RNN cannot learn rare finance vocabulary from
   9.5k tweets (13% of validation tokens are unknown), so even TF-IDF beats it.
-  Pre-trained BERT brings that knowledge in. Its numbers are added to the table,
-  charts and PDF automatically after training (see below).
+  Pre-trained BERT brings that knowledge in. Its numbers are added to the
+  PDF report and charts automatically after training (see below).
 
 Full write-up with charts and error analysis: [`reports/comparison_report.pdf`](reports/comparison_report.pdf) (2 pages).
 
