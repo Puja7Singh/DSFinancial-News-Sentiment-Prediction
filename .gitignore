@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+# offline smoke-test artefacts (not a real BERT result)
+models/BERT_smoke_test/
+reports/metrics/BERT_smoke_test.json
+# fine-tuned BERT weights are ~440MB: keep out of git (use Git LFS / HF Hub)
+models/BERT/model.safetensors
